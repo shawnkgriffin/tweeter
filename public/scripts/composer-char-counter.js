@@ -8,8 +8,7 @@ const cMaxTweetLength = 140;
 
 $(document).ready(function() {
   $("#tweetText").on("keyup", function() {
-    const tweetString = $(this).val();
-    const tweetLength = cMaxTweetLength - tweetString.length;
+    const tweetLength = cMaxTweetLength - $(this).val().length;
     // go to the parent, find the .counter, set it to space remaing and red if less than cMaxTweetLength.
     const counter = $(this)
       .parent()
