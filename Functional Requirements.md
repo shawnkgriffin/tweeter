@@ -4,15 +4,15 @@
 *	Tweets are persisted to MongoDB and survive server restart
 Display Requirements
 #	Navigation Bar:
-- [ ] is fixed to the top
-- [ ] has padding on both sides
+- [X] is fixed to the top
+- [X] has padding on both sides
 - [ ] contains Compose button
 #	Compose Tweet box:
-- [ ] is displayed above the list of tweets
-- [ ] contains a form for submitting tweets, which itself contains:
-- [ ] a textarea for new tweet content
+- [X] is displayed above the list of tweets
+- [X] contains a form for submitting tweets, which itself contains:
+- [X] a textarea for new tweet content
 - [ ] a left-aligned button for submitting new tweets
-- [ ] contains a Character Counter, right-aligned, which by default 
+- [X] contains a Character Counter, right-aligned, which by default 
 shows 140
 #	List of Tweets:
 - [ ] displays tweets in reverse-chronological order (that is, by creation 

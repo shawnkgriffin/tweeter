@@ -1,3 +1,4 @@
+const cMaxTweetLength = 140;
 /*
 * function composerCharCounter() 
 * - checks value of tweetString, 
@@ -8,10 +9,12 @@
 $(document).ready(function() {
   $("#tweetText").on("keyup", function() {
     const tweetString = $(this).val();
-    const tweetLength = 140 - tweetString.length;
-
-    $("#tweetCounter")[0].innerHTML = tweetLength;
-
-    $("#tweetCounter")[0].style.color = tweetLength < 0 ? "red" : "black";
+    const tweetLength = cMaxTweetLength - tweetString.length;
+    // go to the parent, find the .counter, set it to space remaing and red if less than cMaxTweetLength.
+    const counter = $(this)
+      .parent()
+      .find(".counter")[0];
+    counter.style.color = tweetLength < 0 ? "red" : "black";
+    counter.innerHTML = tweetLength;
   });
 });
