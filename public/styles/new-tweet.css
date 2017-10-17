@@ -1,5 +1,10 @@
 .new-tweet {
-  padding : 5px;
+  padding: 0px 20px 0px;
+  border: darkgray;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 20px;
+  background: mistyrose;
  }
  
  .new-tweet h2 {
@@ -12,6 +17,10 @@
  }
  .new-tweet .counter {
    position: absolute;
-   right: 5px;
+   right: 30px;
  }
  
+ .new-tweet input {
+  background: mistyrose;
+  margin-bottom: 5px;
+ }

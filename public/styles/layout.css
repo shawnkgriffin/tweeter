@@ -17,7 +17,7 @@ html {
  */
 
 body {
-  margin: 140px auto 0px;
+  margin: 0px auto 0px;
   color: #244751;
   background-color: #eee;
   font-family: "Roboto Condensed", sans-serif;
@@ -32,12 +32,17 @@ body {
  */
 .container {
   width: 450px;
-  margin: 140px auto 0px;
+  margin: 0px auto;
   background: white;
   border-radius: 5px;
   position: relative;
+  padding-top: 140px;
+  min-height: 100vh;
 }
 
 /*
 * Input form css
 */
+.error {
+  color : red;
+}

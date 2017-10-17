@@ -1,0 +1,77 @@
+article {
+  border: darkgray;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 20px;
+  background: white;    
+  position: relative;
+}
+
+.tweet {
+  padding: 5px;
+}
+
+article header {
+  float: left;
+  background: mistyrose;
+  width: 100%;
+}
+
+article img {
+  width: auto;
+  height: auto;
+  float: left;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+article textarea {
+  width: 100%;
+  padding: 5px;
+}
+article .handle {
+  float: left;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding-right: 5px;
+  padding-top: 20px;
+}
+article .name {
+  font-size: xx-large;
+  font-weight: 900;
+  color: darkgrey;
+}
+
+article footer {
+  border-top: mistyrose;
+  border-top-style: solid;
+  padding:5px;
+}
+
+article span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+article table {
+    height : 100px;
+}
+
+article td {
+  display: table-cell;
+  vertical-align: middle;
+  height : 100px;
+  padding:5px;
+}
+
+article footer span  {
+  float : right;
+  padding:  5px;
+  color: teal;
+  visibility: hidden;
+}
+
+article:hover > footer span {
+  visibility: visible;
+}

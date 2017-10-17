@@ -7,6 +7,7 @@
   right: 0;
   padding-left: 2em;
   padding-right: 2em;
+  z-index: 3;
 }
 #nav-bar .logo {
   width: 80px;
