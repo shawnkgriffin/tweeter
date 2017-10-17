@@ -27,11 +27,17 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- /*
+/*
  * Style container 
  */
 .container {
   width: 450px;
   margin: 140px auto 0px;
   background: white;
+  border-radius: 5px;
+  position: relative;
 }
+
+/*
+* Input form css
+*/
