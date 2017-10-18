@@ -4,9 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(function() {
-
   /*
   * getDateString returns 
   * created_at =  today (hours ago )
@@ -57,17 +55,20 @@ $(function() {
     return tweet;
   };
 
+  //Flash an error message on the object
+  function flashError(object, string) {
+    console.log(object, string);
+  }
 
   // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
   var allTweets = $("#tweets-container");
 
   function loadTweets() {
-
     $.ajax({
       method: "get",
       url: "/tweets"
     }).done(function(tweets) {
-        //remove the existing tweets
+      //remove the existing tweets
       allTweets.empty();
 
       // todo then iterate over each Tweet
@@ -87,6 +88,24 @@ $(function() {
     // TODO prevent default
     event.preventDefault();
 
+    var tweetString = $('#tweet-text').val();
+    var tweetLength = tweetString.length;
+
+    debugger;
+    // TODO check the string for empty or too long
+    if (tweetLength <= 0) {
+      flashError(this, "Need to enter some text.");
+      return;
+    }
+
+    if (tweetLength > MAX_TWEET_LENGTH) {
+      flashError(
+        this,
+        `Tweet too long, please use less than ${MAX_TWEET_LENGTH} characters.`
+      );
+      return;
+    }
+
     // TODO Post to the form
     var theForm = this;
     var data = $(this).serialize();
@@ -96,7 +115,7 @@ $(function() {
       url: "/tweets",
       data: data
     }).done(function() {
-        //reset the form for more input
+      //reset the form for more input
       theForm.reset();
 
       //reload the tweets

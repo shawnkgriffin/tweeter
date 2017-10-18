@@ -1,4 +1,4 @@
-const cMaxTweetLength = 140;
+const MAX_TWEET_LENGTH = 140;
 /*
 * function composerCharCounter() 
 * - checks value of tweetString, 
@@ -12,9 +12,9 @@ $(function () {
 
     var tweetString = $(this).val();
 
-    const tweetLength = cMaxTweetLength - tweetString.length;
+    const tweetLength = MAX_TWEET_LENGTH - tweetString.length;
 
-    // go to the parent, find the .counter, set it to space remaing and red if less than cMaxTweetLength.
+    // go to the parent, find the .counter, set it to space remaing and red if less than MAX_TWEET_LENGTH.
     const counter = $(this)
       .parent()
       .find(".counter");
