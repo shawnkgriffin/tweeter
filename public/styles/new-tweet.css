@@ -14,9 +14,10 @@
  .new-tweet textarea {
    width:100%;
    padding: 5px;
+   resize: vertical;
  }
  .new-tweet .counter {
-   position: absolute;
+   float: right;
    right: 30px;
  }
  

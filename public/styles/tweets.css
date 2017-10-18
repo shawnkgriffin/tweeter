@@ -6,6 +6,7 @@ article {
   background: white;    
   position: relative;
   opacity :0.8;
+  resize: vertical;
 }
 
 .tweet {
@@ -16,6 +17,7 @@ article header {
   float: left;
   background: mistyrose;
   width: 100%;
+  padding: 5px;
 }
 
 article img {
@@ -39,7 +41,7 @@ article .handle {
   padding-top: 20px;
 }
 article .name {
-  font-size: xx-large;
+  font-size: x-large;
   font-weight: 900;
   color: darkgrey;
 }
