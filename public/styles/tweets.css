@@ -6,7 +6,6 @@ article {
   background: white;    
   position: relative;
   opacity :0.8;
-  resize: vertical;
 }
 
 .tweet {
