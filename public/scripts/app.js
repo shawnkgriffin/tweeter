@@ -58,6 +58,12 @@ $(function() {
   //Flash an error message on the object
   function flashError(object, string) {
     console.log(object, string);
+    var errorObj = $(".new-tweet .message");
+    errorObj.text(string);
+    errorObj.css("opacity", "1");
+    errorObj.css("display", "1");
+    errorObj.fadeOut(5000);
+
   }
 
   // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
@@ -101,7 +107,7 @@ $(function() {
     if (tweetLength > MAX_TWEET_LENGTH) {
       flashError(
         this,
-        `Tweet too long, please use less than ${MAX_TWEET_LENGTH} characters.`
+        `Tweet too long, max ${MAX_TWEET_LENGTH}.`
       );
       return;
     }
@@ -118,6 +124,8 @@ $(function() {
       //reset the form for more input
       theForm.reset();
 
+      //reset the counter
+      $('.new-tweet .counter').text(MAX_TWEET_LENGTH);
       //reload the tweets
       loadTweets();
     });

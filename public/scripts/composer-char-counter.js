@@ -8,7 +8,7 @@ const MAX_TWEET_LENGTH = 140;
 
 
 $(function () {
-  $("#tweet-text").on("keyup", function() {
+  $("#tweet-text").on("input", function() {
 
     var tweetString = $(this).val();
 

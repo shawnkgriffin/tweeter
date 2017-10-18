@@ -14,7 +14,7 @@ article {
 
 article header {
   float: left;
-  background: #E4E6EC;
+  background: #e4e6ec;
   width: 100%;
   padding: 5px;
 }
@@ -46,7 +46,7 @@ article .name {
 }
 
 article footer {
-  border-top: mistyrose;
+  border-top: #e4e6ec;
   border-top-style: solid;
   padding:5px;
 }
@@ -67,13 +67,13 @@ article td {
   vertical-align: middle;
   height : 100px;
   padding:5px;
-  word-wrap: break-word;
+  word-wrap: break-word
 }
 
 article footer span  {
   float : right;
   padding:  5px;
-  color: teal;
+  color: darkgray;
   visibility: hidden;
 }
 
