@@ -29,6 +29,7 @@ $(function() {
   }
   /*
   * createTweetElement takes a tweet object and creates a DOM element for it
+  * TODO refactor using mustache to handle XSS issues
   */
   var createTweetElement = function(tweetData) {
     var dateString = getDateString(tweetData.created_at);
@@ -56,31 +57,17 @@ $(function() {
     return tweet;
   };
 
-  function oldTweetLoader() {
-    for (let tweetData of initialTweetArray) {
-      // create a DOM element
-      var $tweet = createTweetElement(tweetData);
-
-      // Test / driver code (temporary)
-
-      console.log($tweet); // to see what it looks like
-
-      $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-    }
-  }
 
   // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
   var allTweets = $("#tweets-container");
 
   function loadTweets() {
-    debugger;
 
     $.ajax({
       method: "get",
       url: "/tweets"
     }).done(function(tweets) {
-      debugger;
-      //remove the existing tweets
+        //remove the existing tweets
       allTweets.empty();
 
       // todo then iterate over each Tweet
@@ -97,7 +84,6 @@ $(function() {
   */
 
   $("#tweet-form").on("submit", function(event) {
-    debugger;
     // TODO prevent default
     event.preventDefault();
 
@@ -110,8 +96,7 @@ $(function() {
       url: "/tweets",
       data: data
     }).done(function() {
-      debugger;
-      //reset the form for more input
+        //reset the form for more input
       theForm.reset();
 
       //reload the tweets
