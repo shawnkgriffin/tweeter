@@ -4,7 +4,7 @@
   border-style: solid;
   border-radius: 5px;
   margin: 20px;
-  background: mistyrose;
+  background:  #E4E6EC
  }
  
  .new-tweet h2 {
@@ -22,6 +22,6 @@
  }
  
  .new-tweet input {
-  background: mistyrose;
+  background :#E4E6EC;
   margin-bottom: 5px;
  }

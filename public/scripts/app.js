@@ -91,7 +91,7 @@ $(function() {
     var tweetString = $('#tweet-text').val();
     var tweetLength = tweetString.length;
 
-    debugger;
+  
     // TODO check the string for empty or too long
     if (tweetLength <= 0) {
       flashError(this, "Need to enter some text.");
