@@ -131,6 +131,7 @@ $(function() {
     return tweet;
   };
 
+  
   for (let tweetData of initialTweetArray) {
     // create a DOM element
     var $tweet = createTweetElement(tweetData);

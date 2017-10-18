@@ -7,9 +7,9 @@ const cMaxTweetLength = 140;
 */
 
 
-$(document).ready(function() {
-  $("#tweetText").on("keyup", function() {
-    
+$(function () {
+  $("#tweet-text").on("keyup", function() {
+
     var tweetString = $(this).val();
 
     const tweetLength = cMaxTweetLength - tweetString.length;
@@ -25,5 +25,11 @@ $(document).ready(function() {
       counter.removeClass("error");
     }
     counter.html(tweetLength);
+  });
+  
+  
+  $("#tweet-form").on("submit", function(event) {
+    debugger;
+    event.preventDefault();
   });
 });
