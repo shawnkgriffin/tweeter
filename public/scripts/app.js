@@ -131,15 +131,69 @@ $(function() {
     return tweet;
   };
 
-  
-  for (let tweetData of initialTweetArray) {
-    // create a DOM element
-    var $tweet = createTweetElement(tweetData);
+  function oldTweetLoader() {
+    for (let tweetData of initialTweetArray) {
+      // create a DOM element
+      var $tweet = createTweetElement(tweetData);
 
-    // Test / driver code (temporary)
+      // Test / driver code (temporary)
 
-    console.log($tweet); // to see what it looks like
+      console.log($tweet); // to see what it looks like
 
-    $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+    }
   }
+
+  // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
+  var allTweets = $("#tweets-container");
+
+  function loadTweets() {
+    debugger;
+
+    $.ajax({
+      method: "get",
+      url: "/tweets"
+    }).done(function(tweets) {
+      debugger;
+      //remove the existing tweets
+      allTweets.empty();
+
+      // todo then iterate over each Tweet
+      tweets.forEach(function(tweet) {
+        // todo then create html representing the Tweet
+        var tweetHTML = createTweetElement(tweet);
+        // todo then append that html to the #all-Tweets
+        allTweets.prepend(tweetHTML);
+      });
+    });
+  }
+  /*
+  * User presses submit on the new tweet form. Form name is #tweet-form
+  */
+
+  $("#tweet-form").on("submit", function(event) {
+    debugger;
+    // TODO prevent default
+    event.preventDefault();
+
+    // TODO Post to the form
+    var theForm = this;
+    var data = $(this).serialize();
+
+    $.ajax({
+      method: "post",
+      url: "/tweets",
+      data: data
+    }).done(function() {
+      debugger;
+      //reset the form for more input
+      theForm.reset();
+
+      //reload the tweets
+      loadTweets();
+    });
+  });
+
+  // Load the tweets the first time.
+  loadTweets();
 });

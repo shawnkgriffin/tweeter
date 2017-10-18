@@ -28,8 +28,4 @@ $(function () {
   });
   
   
-  $("#tweet-form").on("submit", function(event) {
-    debugger;
-    event.preventDefault();
-  });
 });
