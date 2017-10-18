@@ -26,20 +26,24 @@ $(function() {
   });
 
   //Slide toggle Of course there is a jquery function for that.
-  
+  var composeToggleState = true;
+
   $("#compose").on("click", function() {
-    
     // TODO get this working.
     $(".new-tweet").slideToggle("slow", function() {});
-    var composeDisplay = $(".new-tweet").css('display');
-    if (composeDisplay ==='block' ) {
-      opacity = '1';
-    } 
-    if (composeDisplay ==='none' ) {
-      opacity = '.7';
-    } 
-    
-    $("#compose").css('opacity', opacity);
+    var composeDisplay = $(".new-tweet").css("display");
+    if (composeDisplay === "block") {
+      opacity = "1";
+    }
+    if (composeDisplay === "none") {
+      opacity = ".7";
+    }
 
+    $("#compose").css("opacity", composeToggleState ? "1" : ".7");
+    composeToggleState = !composeToggleState;
+
+    if (composeToggleState) {
+      $("#tweet-text").focus();
+    }
   });
 });
