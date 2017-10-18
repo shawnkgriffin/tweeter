@@ -5,6 +5,7 @@ article {
   margin: 20px;
   background: white;    
   position: relative;
+  opacity :0.8;
 }
 
 .tweet {
@@ -72,6 +73,9 @@ article footer span  {
   visibility: hidden;
 }
 
-article:hover > footer span {
+article:hover {
+  opacity: 1;
+}
+article:hover  footer span {
   visibility: visible;
 }
