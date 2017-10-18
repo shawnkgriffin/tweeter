@@ -6,10 +6,8 @@ const MAX_TWEET_LENGTH = 140;
 * if -'ve turns .Counter red
 */
 
-
-$(function () {
+$(function() {
   $("#tweet-text").on("input", function() {
-
     var tweetString = $(this).val();
 
     const tweetLength = MAX_TWEET_LENGTH - tweetString.length;
@@ -26,6 +24,22 @@ $(function () {
     }
     counter.html(tweetLength);
   });
+
+  //Slide toggle Of course there is a jquery function for that.
   
-  
+  $("#compose").on("click", function() {
+    
+    // TODO get this working.
+    $(".new-tweet").slideToggle("slow", function() {});
+    var composeDisplay = $(".new-tweet").css('display');
+    if (composeDisplay ==='block' ) {
+      opacity = '1';
+    } 
+    if (composeDisplay ==='none' ) {
+      opacity = '.7';
+    } 
+    
+    $("#compose").css('opacity', opacity);
+
+  });
 });
