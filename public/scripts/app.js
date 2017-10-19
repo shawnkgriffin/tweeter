@@ -11,18 +11,15 @@ $(function() {
   * created_at < 60 min (minutes ago)
   * created_at < today ( date)
   */
+  moment().format();
+
   function getDateString(created_at) {
     var dateString = "";
-    var today = new Date();
+  
     var givenDate = new Date(created_at);
 
-    dateString =
-      givenDate.getFullYear().toString() +
-      "/" +
-      (givenDate.getMonth() + 1).toString() +
-      "/" +
-      givenDate.getDate().toString();
-
+    dateString = moment(givenDate).fromNow();
+  
     return dateString;
   }
   /*
@@ -63,7 +60,6 @@ $(function() {
     errorObj.css("opacity", "1");
     errorObj.css("display", "inline");
     errorObj.fadeOut(5000);
-
   }
 
   // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
@@ -94,10 +90,9 @@ $(function() {
     // TODO prevent default
     event.preventDefault();
 
-    var tweetString = $('#tweet-text').val();
+    var tweetString = $("#tweet-text").val();
     var tweetLength = tweetString.length;
 
-  
     // TODO check the string for empty or too long
     if (tweetLength <= 0) {
       flashError(this, "Need to enter some text.");
@@ -105,10 +100,7 @@ $(function() {
     }
 
     if (tweetLength > MAX_TWEET_LENGTH) {
-      flashError(
-        this,
-        `Tweet too long, max ${MAX_TWEET_LENGTH}.`
-      );
+      flashError(this, `Tweet too long, max ${MAX_TWEET_LENGTH}.`);
       return;
     }
 
@@ -125,7 +117,7 @@ $(function() {
       theForm.reset();
 
       //reset the counter
-      $('.new-tweet .counter').text(MAX_TWEET_LENGTH);
+      $(".new-tweet .counter").text(MAX_TWEET_LENGTH);
       //reload the tweets
       loadTweets();
     });

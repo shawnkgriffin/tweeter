@@ -6,26 +6,26 @@ Display Requirements
 #	Navigation Bar:
 - [X] is fixed to the top
 - [X] has padding on both sides
-- [ ] contains Compose button
+- [X] contains Compose button
 #	Compose Tweet box:
 - [X] is displayed above the list of tweets
 - [X] contains a form for submitting tweets, which itself contains:
 - [X] a textarea for new tweet content
-- [ ] a left-aligned button for submitting new tweets
+- [X] a left-aligned button for submitting new tweets
 - [X] contains a Character Counter, right-aligned, which by default 
 shows 140
 #	List of Tweets:
-- [ ] displays tweets in reverse-chronological order (that is, by creation 
+- [X] displays tweets in reverse-chronological order (that is, by creation 
 time descending)
 #	Individual Tweets:
-- [ ] have a header, which contains the user's:
-- [ ] avatar, on the left
-- [ ] name, on the left and after the avatar
-- [ ] handle, on the right
-- [ ] have a body, which contains the tweet text
-- [ ] have a footer, which displays:
+- [X] have a header, which contains the user's:
+- [X] avatar, on the left
+- [X] name, on the left and after the avatar
+- [X] handle, on the right
+- [X] have a body, which contains the tweet text
+- [X] have a footer, which displays:
 - [ ] how long ago the tweet was created, on the left
-- [ ] "Flag", "Re-tweet" and "Like" icons upon hovering over the tweet, on the right
+- [X] "Flag", "Re-tweet" and "Like" icons upon hovering over the tweet, on the right
 # Behaviour
 ## Navigation Bar
 #	When a user clicks the Compose button in the Navigation Bar:
