@@ -13,8 +13,6 @@ app.use(express.static("public"));
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
-// The in-memory database of tweets. It's a basic object with an array in it.
-const db = require("./lib/in-memory-db");
 // Let's add in the mongo db beside the in-memory db and go along and replace it slowly
 
 MongoClient.connect(MONGODB_URI, (err, mongodb) => {
@@ -30,7 +28,7 @@ MongoClient.connect(MONGODB_URI, (err, mongodb) => {
   //
   // Because it exports a function that expects the `db` as a parameter, we can
   // require it and pass the `db` parameter immediately:
-  const DataHelpers = require("./lib/data-helpers.js")(db, mongodb);
+  const DataHelpers = require("./lib/data-helpers.js")(mongodb);
 
   // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
   // so it can define routes that use it to interact with the data layer.
