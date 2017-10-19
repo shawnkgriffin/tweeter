@@ -12,20 +12,19 @@
 #nav-bar .logo {
   width: 80px;
   height: 80px;
-  float: left;
-  padding-right: 20px;
+  margin-right: 20px;
 }
 #nav-bar .header {
-  float: left;
-  font-size: 200%;
+  font-size: 3rem;
   padding-right: 20px;
   line-height: 80px;
+  vertical-align: top;
 }
 #compose {
   border-radius: 10px;
   float: right;
   line-height: 40px;
-  margin: 10px;
+  margin: 20px;
   background: lightgray;
-  opacity : .7;
+  opacity: .7;
 }

@@ -61,7 +61,7 @@ $(function() {
     var errorObj = $(".new-tweet .message");
     errorObj.text(string);
     errorObj.css("opacity", "1");
-    errorObj.css("display", "1");
+    errorObj.css("display", "inline");
     errorObj.fadeOut(5000);
 
   }
