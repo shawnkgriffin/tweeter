@@ -20,6 +20,7 @@ $(function() {
 
     dateString = moment(givenDate).fromNow();
   
+
     return dateString;
   }
   /*
