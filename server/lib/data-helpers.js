@@ -8,21 +8,18 @@ module.exports = function makeDataHelpers(mongodb) {
   return {
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
-      console.log("saveTweet");
-      const sortNewestFirst = (a, b) => a.created_at - b.created_at;
+      
       mongodb.collection("tweets").insertOne(newTweet, (err, result) => {
         if (err) {
           return callback(err);
         }
-        console.log("saveTweet callback:", result);
+        
         callback(null, true);
       });
     },
 
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
-      console.log("getTweets");
-      const sortNewestFirst = (a, b) => a.created_at - b.created_at;
       mongodb
         .collection("tweets")
         .find()
@@ -30,7 +27,7 @@ module.exports = function makeDataHelpers(mongodb) {
           if (err) {
             return callback(err);
           }
-          console.log("getTweets callback:", tweets);
+          const sortNewestFirst = (a, b) => a.created_at - b.created_at;
           callback(null, tweets.sort(sortNewestFirst));
         });
     }
