@@ -24,31 +24,41 @@ $(function() {
   }
   /*
   * createTweetElement takes a tweet object and creates a DOM element for it
-  * TODO refactor using mustache to handle XSS issues
+  * Uses handlebar to create a template. 
+  * TODO can refactor this as it gets called a lot to pull out template code
+  */
+
+  /*
+  * Templating using Handlebars
+  * This is placed outside the function as it only needs to be done once
+  * still scoped inside this module.
+  */
+  var htmlTemplate = `<article>
+      <header>
+        <img src={{avatar}}>
+        <p class='name'>{{name}}</p>
+        <p class='handle'>{{handle}}</p>
+      </header>
+      <table>
+        <td>{{content}}</td>
+      </table>
+      <footer>
+      {{dateString}}
+          <span><i class="fa fa-flag"></i>
+            <i class="fa fa-retweet"></i>
+            <i class="fa fa-heart"></i></span>
+      </footer>
+    </article>`;
+
+  var template = Handlebars.compile(htmlTemplate);
+
+  /*
+  * createTweetElement creates a new DOM element for a tweet
+  * tweetData is a tweet object passed in from the database
+  * returns a DOM element 
   */
   var createTweetElement = function(tweetData) {
-    debugger;
-
     var dateString = getDateString(tweetData.created_at);
-
-    var htmlTemplate = `<article>
-          <header>
-            <img src={{avatar}}>
-            <p class='name'>{{name}}</p>
-            <p class='handle'>{{handle}}</p>
-          </header>
-          <table>
-            <td>{{content}}</td>
-          </table>
-          <footer>
-          {{dateString}}
-              <span><i class="fa fa-flag"></i>
-                <i class="fa fa-retweet"></i>
-                <i class="fa fa-heart"></i></span>
-          </footer>
-        </article>`;
-
-    var template = Handlebars.compile(htmlTemplate);
 
     var data = template({
       name: tweetData.user.name,
@@ -58,7 +68,6 @@ $(function() {
       dateString: dateString
     });
 
-    console.log(data);
     // The magic of jquery happens here. Passing in the html description with all the proper classes.
     var tweet = $(data);
     return tweet;
