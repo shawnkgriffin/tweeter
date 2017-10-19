@@ -37,7 +37,8 @@ article .handle {
   right: 0px;
   top: 0px;
   padding-right: 5px;
-  padding-top: 20px;
+  padding-top: 30px;
+  color: darkgrey;
 }
 article .name {
   font-size: x-large;
