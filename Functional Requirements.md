@@ -24,29 +24,28 @@ time descending)
 - [X] handle, on the right
 - [X] have a body, which contains the tweet text
 - [X] have a footer, which displays:
-- [ ] how long ago the tweet was created, on the left
+- [X] how long ago the tweet was created, on the left
 - [X] "Flag", "Re-tweet" and "Like" icons upon hovering over the tweet, on the right
 # Behaviour
 ## Navigation Bar
 #	When a user clicks the Compose button in the Navigation Bar:
-- [ ] if the Compose Tweet box is currently hidden, then it is shown, and the text area inside it is auto-focused
-- [ ] if the Compose Tweet box is currently showing, then it is hidden
-- [ ] in either case, transitions between 'shown' and 'hidden' states 
+- [X] if the Compose Tweet box is currently hidden, then it is shown, and the text area inside it is auto-focused
+- [X] if the Compose Tweet box is currently showing, then it is hidden
+- [X] in either case, transitions between 'shown' and 'hidden' states 
 should be animated
 Character Counter
-#	When a user types into the Compose Tweet textarea, the Character 
+- [X]	When a user types into the Compose Tweet textarea, the Character 
 Counter is updated to show how many characters a user may still type (subtracting the number of characters they've typed from the maximum allowable character count of 140)
-#	The Character Counter turns red (or similar) when more than 140 
+- [X] The Character Counter turns red (or similar) when more than 140 
 characters have been typed into the Compose Tweet textarea, and it  shows how many characters over the 140 limit have been typed (using  a negative number)
 Compose Tweet
-#	When a user submits an invalid tweet (the tweet textarea is empty or 
+- [X] When a user submits an invalid tweet (the tweet textarea is empty or 
 contains more than 140 characters), an appropriate error message is 
 displayed
-#	When a user submits a valid tweet, the list of tweets is refreshed 
+- [X] When a user submits a valid tweet, the list of tweets is refreshed 
 (displaying the new tweet), the Compose Tweet textarea is cleared, 
 and the Character Counter is reset (to 140)
 Stretch
-#	When a user clicks a tweet's "Like" button, the "Like" count is updated
-#	Only logged-in users may "like" tweets, and they may not "like" their 
-own tweets
+- [ ] When a user clicks a tweet's "Like" button, the "Like" count is updated
+- [ ] Only logged-in users may "like" tweets, and they may not "like" their own tweets
 
