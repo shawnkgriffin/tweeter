@@ -1,15 +1,10 @@
 /*
  * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
 $(function() {
   /*
-  * getDateString returns 
-  * created_at =  today (hours ago )
-  * created_at < 60 min (minutes ago)
-  * created_at < today ( date)
+  * use moment to handle setting how long ago.
   */
   moment().format();
 
@@ -22,12 +17,6 @@ $(function() {
 
     return dateString;
   }
-  /*
-  * createTweetElement takes a tweet object and creates a DOM element for it
-  * Uses handlebar to create a template. 
-  * TODO can refactor this as it gets called a lot to pull out template code
-  */
-
   /*
   * Templating using Handlebars
   * This is placed outside the function as it only needs to be done once
@@ -59,7 +48,8 @@ $(function() {
   */
   var createTweetElement = function(tweetData) {
     var dateString = getDateString(tweetData.created_at);
-
+    
+    //use handlebars template to create the data. This handles XSS
     var data = template({
       name: tweetData.user.name,
       avatar: tweetData.user.avatars.regular,
@@ -73,7 +63,7 @@ $(function() {
     return tweet;
   };
 
-  //Flash an error message on the object
+  // Helper function to Flash an error message on the object
   function flashError(object, string) {
     console.log(object, string);
     var errorObj = $(".new-tweet .message");
@@ -94,21 +84,18 @@ $(function() {
       //remove the existing tweets
       allTweets.empty();
 
-      // todo then iterate over each Tweet
       tweets.forEach(function(tweet) {
-        // todo then create html representing the Tweet
         var tweetHTML = createTweetElement(tweet);
-        // todo then append that html to the #all-Tweets
         allTweets.prepend(tweetHTML);
       });
     });
   }
+  
   /*
-  * User presses submit on the new tweet form. Form name is #tweet-form
+  * User presses submit on the Compose tweet form, id is #tweet-form. 
   */
-
   $("#tweet-form").on("submit", function(event) {
-    // TODO prevent default
+    
     event.preventDefault();
 
     var tweetString = $("#tweet-text").val();
@@ -116,7 +103,7 @@ $(function() {
 
     // TODO check the string for empty or too long
     if (tweetLength <= 0) {
-      flashError(this, "Need to enter some text.");
+      flashError(this, "Please enter some text.");
       return;
     }
 
@@ -125,8 +112,8 @@ $(function() {
       return;
     }
 
-    // TODO Post to the form
-    var theForm = this;
+    //  Post to the form
+    var theForm = this;  // Need to keep the form around for the callback.
     var data = $(this).serialize();
 
     $.ajax({
