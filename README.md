@@ -2,6 +2,8 @@
 
 The Tweeter project is a simplified single-page Twitter clone using HTML, CSS, JS, jQuery and AJAX on the front-end, and Node, Express and MongoDB on the back-end.
 
+The functional requirements, and their status can be found [here](https://github.com/shawnkgriffin/tweeter/blob/master/Functional%20Requirements.md). 
+
 ## Screen Shots
 ![Entering a tweet.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_compose.png "Start.")
 ![Compose form hidden.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_compose_hidden.png "Compose hidden")
