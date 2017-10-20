@@ -4,25 +4,29 @@
  * Do not modify these two selectors, please
  */
 html {
-  box-sizing: border-box; }
-
+  box-sizing: border-box;
+}
 *,
 *:before,
 *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 /*
  * Global layout stuff
  */
+
 body {
   margin: 0px auto 0px;
   color: #244751;
   background-color: #eee;
-  font-family: "Roboto Condensed", sans-serif; }
+  font-family: "Roboto Condensed", sans-serif;
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
 /*
  * Style container 
  */
@@ -33,12 +37,12 @@ body {
   border-radius: 5px;
   position: relative;
   padding-top: 140px;
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 /*
 * Input form css
 */
 .error {
-  color: red; }
-
-/*# sourceMappingURL=layout.css.map */
+  color : red;
+}

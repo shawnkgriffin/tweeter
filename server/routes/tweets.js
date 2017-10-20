@@ -5,12 +5,14 @@ const userHelper = require('../lib/util/user-helper')
 const express = require('express')
 const tweetsRoutes = express.Router()
 
-module.exports = function (DataHelpers) {
-  /*
-  * The Get / root gets a fresh list of all tweets and then renders tehm. 
+module.exports = function (dataHelpers) {
+  /**
+  * tweetsRoutes.get('/' sets the route to get the list of tweets.
+  * @param {string} / - router.
+  * @param {function} function - Calls dataHelpers.getTweets
   */
   tweetsRoutes.get('/', function (req, res) {
-    DataHelpers.getTweets((err, tweets) => {
+    dataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message })
       } else {
@@ -38,7 +40,7 @@ module.exports = function (DataHelpers) {
       created_at: Date.now()
     }
 
-    DataHelpers.saveTweet(tweet, err => {
+    dataHelpers.saveTweet(tweet, err => {
       if (err) {
         res.status(500).json({ error: err.message })
       } else {

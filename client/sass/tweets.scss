@@ -6,28 +6,32 @@ article {
   background: white;
   position: relative;
   opacity: 0.8;
-  box-shadow: 10px 10px 5px #888888; }
+  box-shadow: 10px 10px 5px #888888;
+}
 
 .tweet {
-  padding: 5px; }
+  padding: 5px;
+}
 
 article header {
   float: left;
   background: #e4e6ec;
   width: 100%;
-  padding: 5px; }
+  padding: 5px;
+}
 
 article img {
   width: auto;
   height: auto;
   float: left;
   margin: 5px;
-  border-radius: 10px; }
+  border-radius: 10px;
+}
 
 article textarea {
   width: 100%;
-  padding: 5px; }
-
+  padding: 5px;
+}
 article .handle {
   float: left;
   position: absolute;
@@ -35,46 +39,51 @@ article .handle {
   top: 0px;
   padding-right: 5px;
   padding-top: 30px;
-  color: darkgrey; }
-
+  color: darkgrey;
+}
 article .name {
   font-size: x-large;
   font-weight: 900;
   color: darkgrey;
   display: inline;
-  line-height: 100px; }
+  line-height: 100px;
+}
 
 article footer {
   border-top: #e4e6ec;
   border-top-style: solid;
-  padding: 5px; }
+  padding: 5px;
+}
 
 article span {
   display: table-cell;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 article table {
   height: 100px;
   table-layout: fixed;
-  width: 100%; }
+  width: 100%;
+}
 
 article td {
   display: table-cell;
   vertical-align: middle;
   height: 100px;
   padding: 5px;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 article footer span {
   float: right;
   padding: 5px;
   color: darkgray;
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 article:hover {
-  opacity: 1; }
-
+  opacity: 1;
+}
 article:hover footer span {
-  visibility: visible; }
-
-/*# sourceMappingURL=tweets.css.map */
+  visibility: visible;
+}

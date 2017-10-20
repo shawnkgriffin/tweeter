@@ -5,29 +5,33 @@
   border-radius: 5px;
   margin: 20px;
   background: #e4e6ec;
-  box-shadow: 10px 10px 5px #888888; }
+  box-shadow: 10px 10px 5px #888888;
+}
 
 .new-tweet h2 {
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid black;
+}
 
 .new-tweet textarea {
   width: 100%;
   padding: 5px;
-  resize: vertical; }
-
+  resize: vertical;
+}
 .new-tweet .counter {
   float: right;
-  right: 30px; }
+  right: 30px;
+}
 
 .new-tweet input {
   background: #e4e6ec;
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+}
 
 .new-tweet .error {
-  color: red; }
+  color: red;
+}
 
 .new-tweet .message {
   opacity: 0;
-  color: red; }
-
-/*# sourceMappingURL=new-tweet.css.map */
+  color: red;
+}

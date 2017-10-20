@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // Basic express setup:
 
@@ -23,13 +23,13 @@ MongoClient.connect(MONGODB_URI, (err, mongodb) => {
   // We have a connection to the "tweeter" db, starting here.
   console.log(`Connected to mongodb: ${MONGODB_URI}`)
 
-  // the DataHelpers have been re-factored to user mongo. 
+  // the dataHelpers have been re-factored to user mongo. 
 
-  const DataHelpers = require('./lib/data-helpers.js')(mongodb)
+  const dataHelpers = require('./lib/data-helpers.js')(mongodb)
 
-  // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
+  // The `tweets-routes` module works similarly: we pass it the `dataHelpers` object
   // so it can define routes that use it to interact with the data layer.
-  const tweetsRoutes = require('./routes/tweets')(DataHelpers)
+  const tweetsRoutes = require('./routes/tweets')(dataHelpers)
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use('/tweets', tweetsRoutes)
