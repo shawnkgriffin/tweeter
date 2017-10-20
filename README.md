@@ -6,8 +6,8 @@ The Tweeter project is a simplified single-page Twitter clone using HTML, CSS, J
 
 ## Screen Shots
 ![Entering a tweet.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_compose.png "Start.")
-![Compose form hidden.](https://github.com/shawnkgriffin/tweeter/blob/master/public/images/screen_compose_hidden.png "Compose hidden")
-![Past tweets.](https://github.com/shawnkgriffin/tweeter/blob/master/public/images/screen_tweet.png "Tweets.")
+![Compose form hidden.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_compose_hidden.png "Compose hidden")
+![Past tweets.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_tweet.png "Tweets.")
 
 ## Getting Started
 
