@@ -10,7 +10,7 @@
 
   <!-- Font Awesome fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <!-- Roboto Condensed 700, 300 and italic versions of each -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
 
@@ -29,13 +29,16 @@
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <!-- moment JS -->
   <script type="text/javascript" src="/vendor/moment.js"></script>
-  
- <!-- handlebars JS -->
- <script type="text/javascript" src="/vendor/handlebars-v4.0.11.js"></script>
- 
- <!-- App JS -->
+
+  <!-- handlebars JS -->
+  <script type="text/javascript" src="/vendor/handlebars-v4.0.11.js"></script>
+
+  <!-- App JS -->
   <script type="text/javascript" src="/scripts/app.js"></script>
 
   <!-- composer-char counter makes sure input form is 140 char or less JS -->
@@ -49,12 +52,32 @@
   <nav id="nav-bar">
     <img class="logo" src="/images/bird.png">
     <span class="header">Tweeter</span>
-    <button id="compose"><i class="fa fa-pencil-square-o"></i> Compose</button>
+
+    <button class="nav-bar-button" id="loginButton">
+      <i class="fa fa-icon-user"></i> Login</button>
+    <button class="nav-bar-button" id="compose">
+      <i class="fa fa-pencil-square-o"></i> Compose</button>
   </nav>
+
 
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <section class="login">
+      <h2>Login</h2>
+      <form id="login-form" action="http://127.0.0.1:8080/tweets" method="post">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+        <div>
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div>
+          <input type="submit" value="Login" id="loginButton">
+        </div>
+      </form>
+    </section>
+    </section>
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form id="tweet-form" action="http://127.0.0.1:8080/tweets" method="post">
@@ -66,7 +89,7 @@
     </section>
 
     <div id="tweets-container">
-      
+
     </div>
   </main>
 </body>
