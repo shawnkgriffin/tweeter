@@ -1,4 +1,4 @@
-const MAX_TWEET_LENGTH = 140;
+const MAX_TWEET_LENGTH = 140
 /*
 * function composerCharCounter() 
 * - checks value of tweetString, 
@@ -6,44 +6,37 @@ const MAX_TWEET_LENGTH = 140;
 * if -'ve turns .Counter red
 */
 
-$(function() {
-  $("#tweet-text").on("input", function() {
-    var tweetString = $(this).val();
+$(function () {
+  $('#tweet-text').on('input', function () {
+    var tweetString = $(this).val()
 
-    const tweetLength = MAX_TWEET_LENGTH - tweetString.length;
+    const tweetLength = MAX_TWEET_LENGTH - tweetString.length
 
     // go to the parent, find the .counter, set it to space remaing and red if less than MAX_TWEET_LENGTH.
     const counter = $(this)
       .parent()
-      .find(".counter");
+      .find('.counter')
 
     if (tweetLength < 0) {
-      counter.addClass("error");
+      counter.addClass('error')
     } else {
-      counter.removeClass("error");
+      counter.removeClass('error')
     }
-    counter.html(tweetLength);
-  });
+    counter.html(tweetLength)
+  })
 
-  //Slide toggle Of course there is a jquery function for that.
-  var composeToggleState = true;
+  // Slide toggle Of course there is a jquery function for that.
+  var composeToggleState = true
 
-  $("#compose").on("click", function() {
-    // TODO get this working.
-    $(".new-tweet").slideToggle("slow", function() {});
-    var composeDisplay = $(".new-tweet").css("display");
-    if (composeDisplay === "block") {
-      opacity = "1";
-    }
-    if (composeDisplay === "none") {
-      opacity = ".7";
-    }
+  $('#compose').on('click', function () {
+    // use slideToggle to slide box in and out. 
+    $('.new-tweet').slideToggle('slow', function () {})
 
-    $("#compose").css("opacity", composeToggleState ? "1" : ".7");
-    composeToggleState = !composeToggleState;
+    $('#compose').css('opacity', composeToggleState ? '1' : '.7')
+    composeToggleState = !composeToggleState
 
     if (composeToggleState) {
-      $("#tweet-text").focus();
+      $('#tweet-text').focus()
     }
-  });
-});
+  })
+})
