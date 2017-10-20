@@ -63,9 +63,11 @@ $(function () {
     return tweet
   }
 
-  // Helper function to Flash an error message on the object
-  function flashError (object, string) {
-    console.log(object, string)
+  /**
+  * flashError (string) Flash an error on $('.new-tweet .message') and fade it out over 5 seconds. 
+  * @param {string} string - The error message to display. Should be less than 40 characters.
+  */
+  function flashError (string) {
     var errorObj = $('.new-tweet .message')
     errorObj.text(string)
     errorObj.css('opacity', '1')
@@ -102,12 +104,12 @@ $(function () {
 
     // TODO check the string for empty or too long
     if (tweetLength <= 0) {
-      flashError(this, 'Please enter some text.')
+      flashError('Please enter some text.')
       return
     }
 
     if (tweetLength > MAX_TWEET_LENGTH) {
-      flashError(this, `Tweet too long, max ${MAX_TWEET_LENGTH}.`)
+      flashError(`Tweet too long, max ${MAX_TWEET_LENGTH}.`)
       return
     }
 

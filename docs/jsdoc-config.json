@@ -1,0 +1,8 @@
+{
+  "source": {
+      "include": ["server/lib/data-helpers.js", "public/scripts/app.js"],
+      "exclude": [],
+      "includePattern": ".+\\.js(doc|x)?$",
+      "excludePattern": "(^|\\/|\\\\)_"
+  }
+}
