@@ -6,6 +6,9 @@ const express = require("express");
 const tweetsRoutes = express.Router();
 
 module.exports = function(DataHelpers) {
+  /*
+  * The Get / root gets a fresh list of all tweets and then renders tehm. 
+  */
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
@@ -15,7 +18,9 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
+  /*
+  * The Put / root puts a new tweet.
+  */
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: "invalid request: no data in POST body" });
