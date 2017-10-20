@@ -5,7 +5,7 @@ Tweeter is a simple, single-page Twitter clone.
 The Tweeter project is a simplified single-page Twitter clone using HTML, CSS, JS, jQuery and AJAX on the front-end, and Node, Express and MongoDB on the back-end.
 
 ## Screen Shots
-![Entering a tweet.](https://github.com/shawnkgriffin/tweeter/blob/master/public/images/screen_compose.png "Start.")
+![Entering a tweet.](https://github.com/shawnkgriffin/tweeter/blob/master/docs/screen_compose.png "Start.")
 ![Compose form hidden.](https://github.com/shawnkgriffin/tweeter/blob/master/public/images/screen_compose_hidden.png "Compose hidden")
 ![Past tweets.](https://github.com/shawnkgriffin/tweeter/blob/master/public/images/screen_tweet.png "Tweets.")
 
