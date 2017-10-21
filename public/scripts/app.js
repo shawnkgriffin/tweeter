@@ -181,12 +181,11 @@ $(function () {
   $('.new-tweet').hide()
 
   // start with handle hidden
-  // TODO make this a CSS property. 
-  $('#handle').css('visibility', "hidden")
-  $('#avatar-file').css('visibility', 'hidden')
+  // TODO make this a CSS property.
   $('#loginButton').val('Login')
- 
-  // Load the tweets the first time. 
+  $('#handle').hide()
+  $('#avatar-file').hide()
+  // Load the tweets the first time.
   // loadTweets will check if there is a user logged in
   loadTweets()
 })

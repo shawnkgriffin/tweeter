@@ -65,9 +65,13 @@ $(function () {
   })
 
   $('#new-user').change(function () {
-    const visible = this.checked ? 'visible' : 'hidden'
-    $('#handle').css('visibility', visible)
-    $('#avatar-file').css('visibility', visible)
     $('#loginButton').val(this.checked ? 'Register' : 'Login')
+    if (this.checked) {
+      $('#handle').slideDown('slow')
+      $('#avatar-file').slideDown('slow')
+    } else {
+      $('#handle').slideUp('slow')
+      $('#avatar-file').slideUp('slow')
+    }
   })
 })
