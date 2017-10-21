@@ -29,7 +29,7 @@ $(function () {
   var composeToggleState = true
 
   $('#compose').on('click', function () {
-    // use slideToggle to slide box in and out. 
+    // use slideToggle to slide box in and out.
     $('.new-tweet').slideToggle('slow', function () {})
 
     $('#compose').css('opacity', composeToggleState ? '1' : '.7')
@@ -41,7 +41,7 @@ $(function () {
   })
 
   $('#user-avatar').on('click', function () {
-    // use slideToggle to slide box in and out. 
+    // use slideToggle to slide box in and out.
     $('.login').slideToggle('slow', function () {})
 
     $('#login').css('opacity', composeToggleState ? '1' : '.7')
@@ -51,9 +51,9 @@ $(function () {
       $('#pwd').focus()
     }
   })
-  
+
   $('#loginButton').on('click', function () {
-    // use slideToggle to slide box in and out. 
+    // use slideToggle to slide box in and out.
     $('.login').slideToggle('slow', function () {})
 
     $('#login').css('opacity', composeToggleState ? '1' : '.7')
@@ -62,5 +62,12 @@ $(function () {
     if (composeToggleState) {
       $('#pwd').focus()
     }
+  })
+
+  $('#new-user').change(function () {
+    const visible = this.checked ? 'visible' : 'hidden'
+    $('#handle').css('visibility', visible)
+    $('#avatar-file').css('visibility', visible)
+    $('#loginButton').val(this.checked ? 'Register' : 'Login')
   })
 })

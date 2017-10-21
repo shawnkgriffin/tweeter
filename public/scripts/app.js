@@ -176,6 +176,17 @@ $(function () {
     })
   })
 
-  // Load the tweets the first time.
+  // Start with the login and compose forms hidden
+  $('.login').hide()
+  $('.new-tweet').hide()
+
+  // start with handle hidden
+  // TODO make this a CSS property. 
+  $('#handle').css('visibility', "hidden")
+  $('#avatar-file').css('visibility', 'hidden')
+  $('#loginButton').val('Login')
+ 
+  // Load the tweets the first time. 
+  // loadTweets will check if there is a user logged in
   loadTweets()
 })
