@@ -16,7 +16,7 @@
     float: right;
     right: 30px; }
   .new-tweet input, .login input {
-    background: #e4e6ec;
+    background: #white;
     margin-bottom: 5px; }
   .new-tweet .error, .login .error {
     color: red; }

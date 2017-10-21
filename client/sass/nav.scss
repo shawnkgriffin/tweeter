@@ -19,9 +19,8 @@
   padding-right: 20px;
   line-height: 80px;
   vertical-align: top;
-  
 }
-.user-name {
+#user-name {
   border-radius: 10px;
   float: right;
   line-height: 40px;
@@ -29,12 +28,18 @@
   background: lightgray;
   opacity: 0.7;
 }
-.nav-bar-button {
+#user-avatar {
   border-radius: 10px;
   float: right;
-  line-height: 40px;
   margin: 20px;
-  background: lightgray;
-  opacity: 0.7;
+  height: 40px;
+  width: 40px;
 }
 
+.nav-bar-button {
+  float: right;
+  line-height: 40px;
+  margin: 20px;
+  height: 40px;
+  width:  40px;
+}

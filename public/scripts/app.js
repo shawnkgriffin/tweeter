@@ -1,5 +1,5 @@
 /*
- * Client-side JS logic goes here
+ * Client-side JS 
  */
 
 $(function () {
@@ -41,10 +41,10 @@ $(function () {
 
   var template = Handlebars.compile(htmlTemplate)
 
-  /*
+  /**
   * createTweetElement creates a new DOM element for a tweet
-  * tweetData is a tweet object passed in from the database
-  * returns a DOM element 
+  * @param {object} tweetData is a tweet object passed in from the database
+  * @returns {object} tweet - returns a DOM element 
   */
   var createTweetElement = function (tweetData) {
     var dateString = getDateString(tweetData.createdAt)
@@ -80,7 +80,7 @@ $(function () {
   // AJAXing Tweets------------------------------------------------------------------------------------------------------------------
   var allTweets = $('#tweets-container')
 
-    /*
+  /*
   * User presses submit on the Compose tweet form, id is #tweet-form. 
   */
   $('#login-form').on('submit', function (event) {
@@ -90,31 +90,38 @@ $(function () {
     var password = $('#password').val()
 
     // TODO check the string for empty or too long
-    if ((email <= 0) || (password <= 0)) {
+    if (email <= 0 || password <= 0) {
       flashError('Please enter a valid email and password')
       return
     }
 
     //  Post to the form
-    var theForm = this // Need to keep the form around for the callback.
-    var data = $(this).serialize()
+    const data = $(this).serialize()
+    var thisLoginForm = this
 
     $.ajax({
       method: 'get',
       url: '/users/login',
       data: data
-    }).done(function () {
-      // reset the form for more input
-      theForm.reset()
+    }).done(function (user) {
+      // TODO reset the form for more input
+      thisLoginForm.reset()
 
-      // reset the counter
-      $('#user-name').text(user.name)
-      // reload the tweets
-      loadTweets()
+      if (user) {
+        // Set the avatar
+        $('#user-avatar').attr('src', user.avatars.small)
+
+        $('.login').slideUp('slow')
+        // reload the tweets
+        loadTweets()
+      } else {
+        // handle user not found.
+        flashError('Invalid Email or Password')
+
+        // handle no user
+      }
     })
   })
-
-  }
   function loadTweets () {
     $.ajax({
       method: 'get',

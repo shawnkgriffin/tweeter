@@ -40,6 +40,18 @@ $(function () {
     }
   })
 
+  $('#user-avatar').on('click', function () {
+    // use slideToggle to slide box in and out. 
+    $('.login').slideToggle('slow', function () {})
+
+    $('#login').css('opacity', composeToggleState ? '1' : '.7')
+    composeToggleState = !composeToggleState
+
+    if (composeToggleState) {
+      $('#pwd').focus()
+    }
+  })
+  
   $('#loginButton').on('click', function () {
     // use slideToggle to slide box in and out. 
     $('.login').slideToggle('slow', function () {})

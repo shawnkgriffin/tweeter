@@ -52,11 +52,8 @@
   <nav id="nav-bar">
     <img class="logo" src="/images/bird.png">
     <span class="header">Tweeter</span>
-    <span class ='user-name'>?</span>
-    <button class="nav-bar-button" id="loginButton">
-      <i class="fa fa-icon-user"></i> Login</button>
-    <button class="nav-bar-button" id="compose">
-      <i class="fa fa-pencil-square-o"></i> Compose</button>
+    <img alt="?" id="user-avatar" src="/images/not-logged-in.png">
+    <img class="nav-bar-button" alt="?" id="compose" src="/images/pen.png">
   </nav>
 
 
@@ -66,11 +63,9 @@
     <section class="login">
       <h2>Login</h2>
       <form id="login-form" action="http://127.0.0.1:8080/users/login" method="get">
-        <label for="email">Email address:</label>
-        <input type="email" name="email" id="email">
+        <input placeholder='Email...' type="email" name="email" id="email">
         <div>
-          <label for="pwd">Password: </label>
-          <input type="password" name="password" id="password">
+          <input placeholder='Password...' type="password" name="password" id="password">
         </div>
         <div>
           <input type="submit" value="Login" id="loginButton">
