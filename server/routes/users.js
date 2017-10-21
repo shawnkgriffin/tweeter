@@ -3,30 +3,32 @@
 const userHelper = require('../lib/util/user-helper')
 
 const express = require('express')
-const tweetsRoutes = express.Router()
+const usersRoutes = express.Router()
 
 module.exports = function (dataHelpers) {
+  console.log('users datahelpers')
   /**
-  * tweetsRoutes.get('/' sets the route to get the list of tweets.
-  * @param {string} / - Routes to /tweets
-  * @param {function} function - Calls dataHelpers.getTweets
+  * usersRoutes.get('/login' sets the route to get the list of users.
+  * @param {string} / - Routes to /users
+  * @param {function} function - Calls dataHelpers.getusers
   */
-  tweetsRoutes.get('/', function (req, res) {
-    dataHelpers.getTweets((err, tweets) => {
+  usersRoutes.get('/login', function (req, res) {
+    dataHelpers.getUser(req.query.email, req.query.password, (err, user) => {
       if (err) {
         res.status(500).json({ error: err.message })
       } else {
-        res.json(tweets)
+        res.json(user)
       }
     })
   })
   /**
-  * Posts to /tweets which creates a new tweet. 
+  * Posts to /users/register which creates a new user. 
   * @
   * @param {string} / 
   * @param {string} function (req, res) - the function to act upon the output. 
   */
-  tweetsRoutes.post('/', function (req, res) {
+  usersRoutes.post('/', function (req, res) {
+    console.log('user post(', req.body.email, req.body.pwd)
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body' })
       return
@@ -43,7 +45,7 @@ module.exports = function (dataHelpers) {
       created_at: Date.now()
     }
 
-    dataHelpers.saveTweet(tweet, err => {
+    dataHelpers.addUser(user, err => {
       if (err) {
         res.status(500).json({ error: err.message })
       } else {
@@ -52,5 +54,5 @@ module.exports = function (dataHelpers) {
     })
   })
 
-  return tweetsRoutes
+  return usersRoutes
 }

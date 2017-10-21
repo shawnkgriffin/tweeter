@@ -37,6 +37,27 @@ module.exports = function makeDataHelpers (mongodb) {
           const sortNewestFirst = (a, b) => a.created_at - b.created_at
           callback(null, tweets.sort(sortNewestFirst))
         })
+    },
+
+    /**
+    * Get the user information from the database.
+    * calls mongo database and a user.
+    * @param {function} callback - the function that you want to process the user when it is returned.  
+    * @returns {MongoError} err - An error instance representing the error during the execution.
+    * @returns {object} tweets - The result object if the command was executed successfully. In this case a single user. 
+    */
+    getUser: function (email, password, callback) {
+      console.log('getUser ', email, password)
+
+      mongodb
+        .collection('users')
+        .findOne({ 'email': email, 'password': password }, (err, user) => {
+          if (err) {
+            return callback(err)
+          }
+          console.log('getUser callback ', user)
+          callback(null, user)
+        })
     }
   }
 }

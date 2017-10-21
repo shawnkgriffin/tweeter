@@ -75,9 +75,46 @@ $(function () {
     errorObj.fadeOut(5000)
   }
 
-  // AJAXing ------------------------------------------------------------------------------------------------------------------------------------
+  // AJAXing Users------------------------------------------------------------------------------------------------------------------
+
+  // AJAXing Tweets------------------------------------------------------------------------------------------------------------------
   var allTweets = $('#tweets-container')
 
+    /*
+  * User presses submit on the Compose tweet form, id is #tweet-form. 
+  */
+  $('#login-form').on('submit', function (event) {
+    event.preventDefault()
+
+    var email = $('#email').val()
+    var password = $('#password').val()
+
+    // TODO check the string for empty or too long
+    if ((email <= 0) || (password <= 0)) {
+      flashError('Please enter a valid email and password')
+      return
+    }
+
+    //  Post to the form
+    var theForm = this // Need to keep the form around for the callback.
+    var data = $(this).serialize()
+
+    $.ajax({
+      method: 'get',
+      url: '/users/login',
+      data: data
+    }).done(function () {
+      // reset the form for more input
+      theForm.reset()
+
+      // reset the counter
+      $('#user-name').text(user.name)
+      // reload the tweets
+      loadTweets()
+    })
+  })
+
+  }
   function loadTweets () {
     $.ajax({
       method: 'get',
