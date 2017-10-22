@@ -108,8 +108,12 @@ module.exports = function (dataHelpers) {
  *         description: Successfully added like
  */
   likesRoutes.post('/', function (req, res) {
-    console.log('likesRoutes.post(/(', req.query.tweetID, req.query.handle )
-    dataHelpers.likeTweet(true, req.query.tweetID, req.query.handle, err => {
+    console.log('likesRoutes.post(/(', req.query.tweetID, req.query.tweetHandle)
+    // not allowed if you are not logged in or if you are liking your own tweet
+    if (!req.session.handle || (req.session.handle === req.query.tweetHandle)) {
+      return
+    }
+    dataHelpers.likeTweet(true, req.query.tweetID, req.session.handle, err => {
       if (err) {
         res.status(500).json({ error: err.message })
       } else {
@@ -119,7 +123,8 @@ module.exports = function (dataHelpers) {
   })
 
   likesRoutes.delete('/', function (req, res) {
-    console.log('likesRoutes.delete(/(', req.query.tweetID, req.query.handle)
+    console.log('likesRoutes.delete(/(', req.query.tweetID, req.query.tweetHandle)
+
     dataHelpers.likeTweet(false, req.query.tweetID, req.query.handle, err => {
       if (err) {
         res.status(500).json({ error: err.message })

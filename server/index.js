@@ -6,10 +6,19 @@ const PORT = 8080
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+let cookieSession = require("cookie-session")
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(
+  cookieSession({
+    name: 'session',
+    keys: ['key1', 'key2'],
 
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  })
+)
 // Set up and use mongo client. Running mongo locally.
 const MongoClient = require('mongodb').MongoClient
 const MONGODB_URI = 'mongodb://localhost:27017/tweeter'

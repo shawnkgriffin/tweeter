@@ -61,7 +61,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="login">
-      <h2>Login</h2>
+      <h2 id='login-form-title'>Login/Register </h2>
       <form id="login-form" action="http://127.0.0.1:8080/users/login" method="get">
         <input placeholder='Email...' type="email" name="email" id="email">
         <div>
@@ -74,6 +74,7 @@
         <div>
           <input type="submit" value="Login" id="loginButton">
           <input type="checkbox" name="New User" id="new-user"> New User
+          <input type="checkbox" name="" id="loggedIn"> 
         </div>
       </form>
     </section>

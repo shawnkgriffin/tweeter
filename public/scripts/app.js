@@ -2,11 +2,12 @@
  * Client-side JS 
  */
 
+moment().format()
+
 $(function () {
   /*
   * use moment to handle setting how long ago.
   */
-  moment().format()
 
   function getDateString (createdAt) {
     var dateString = ''
@@ -81,19 +82,53 @@ $(function () {
 
   // AJAXing Tweets------------------------------------------------------------------------------------------------------------------
   var allTweets = $('#tweets-container')
+
+  function setLoginScreen (user) {
+    // If the user is logged in, user and avatar will be valid.
+    if (user) {
+      // user is logged in, show logout button, hide email, password, avatar and login button.
+      // Start with the login and compose forms hidden
+      $('#email').hide()
+      $('#password').hide()
+      $('#loginButton').val('Logout')
+      $('#handle').hide()
+      $('#avatar-file').hide()
+      $('#login-form-title').text('Logout')
+    } else {
+      // user is not logged in, show login button,  email, password,
+      // if new user is checked show avatar and file
+      // Start with the login and compose forms hidden
+      $('#email').show()
+      $('#password').show()
+      $('#loginButton').val('Login')
+      $('#login-form-title').text('Login/Register')
+      if (!$('#new-user').checked) {
+        $('#handle').hide()
+        $('#avatar-file').hide()
+      }
+    }
+  }
   /*
   * User presses submit on the Compose tweet form, id is #tweet-form. 
   */
   $('#login-form').on('submit', function (event) {
     event.preventDefault()
 
-    var email = $('#email').val()
-    var password = $('#password').val()
+    // Check to see if we are loggin out
+    if ($('#loginButton').val() === 'Logout') {
+      $.ajax({
+        method: 'get',
+        url: '/users/logout',
+        data: {}
+      }).done(function () {})
+      var email = $('#email').val()
+      var password = $('#password').val()
 
-    // TODO check the string for empty or too long
-    if (email <= 0 || password <= 0) {
-      flashError('Please enter a valid email and password')
-      return
+      // TODO check the string for empty or too long
+      if (email <= 0 || password <= 0) {
+        flashError('Please enter a valid email and password')
+        return
+      }
     }
 
     //  Post to the form
@@ -113,6 +148,9 @@ $(function () {
         $('#user-avatar').attr('src', user.avatars.small)
 
         $('.login').slideUp('slow')
+
+        setLoginScreen(user)
+
         // reload the tweets
         loadTweets()
       } else {
@@ -143,22 +181,23 @@ $(function () {
       */
       $('.fa-heart').on('click', function (event) {
         event.preventDefault()
+
+        // Pass the tweetID and the handle of the tweet. 
+        // The server will check to make sure that the user is not tweeting their own tweets. 
         const tweetID = $(this)
           .closest('article')
           .attr('id')
-        const handle = $(this)
+        const tweetHandle = $(this)
           .closest('article')
           .find('.handle')
           .text()
-        console.log('click faheart', tweetID, handle)
 
         $.ajax({
           method: 'post',
-          url: '/likes?' + $.param({ tweetID: tweetID, handle: handle }),
-          data: { tweetID: tweetID, handle: handle }
+          url: '/likes?' + $.param({ tweetID: tweetID, tweetHandle: tweetHandle }),
+          data: { }
         }).done(function () {
           // TODO reset the form for more input
-          console.log('done post fa-heart')
           loadTweets()
         })
       })
@@ -207,12 +246,8 @@ $(function () {
   // Start with the login and compose forms hidden
   $('.login').hide()
   $('.new-tweet').hide()
+  setLoginScreen('')
 
-  // start with handle hidden
-  // TODO make this a CSS property.
-  $('#loginButton').val('Login')
-  $('#handle').hide()
-  $('#avatar-file').hide()
   // Load the tweets the first time.
   // loadTweets will check if there is a user logged in
   loadTweets()
