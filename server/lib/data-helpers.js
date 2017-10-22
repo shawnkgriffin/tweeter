@@ -1,5 +1,5 @@
 'use strict'
-
+var ObjectID = require('mongodb').ObjectID
 // Defines helper functions for saving and getting tweets, using the database `mongodb`
 module.exports = function makeDataHelpers (mongodb) {
   return {
@@ -51,13 +51,47 @@ module.exports = function makeDataHelpers (mongodb) {
 
       mongodb
         .collection('users')
-        .findOne({ 'email': email, 'password': password }, (err, user) => {
+        .findOne({ email: email, password: password }, (err, user) => {
           if (err) {
             return callback(err)
           }
           console.log('getUser callback ', user)
           callback(null, user)
         })
+    },
+
+    likeTweet: function (addRemove, tweetID, handle, callback) {
+      const action = addRemove ? '$addToSet' : '$pull'
+      console.log(
+        `mongodb.collection('tweets').update({"_id" : ObjectId(${tweetID})},{${action}: {"likes" : ${handle}},`
+      )
+      if (addRemove) {
+        mongodb
+          .collection('tweets')
+          .update(
+            { _id: ObjectID(tweetID) },
+            { $addToSet: { likes: handle } },
+            (err, result) => {
+              if (err) {
+                return callback(err)
+              }
+              callback(null, true)
+            }
+          )
+      } else {
+        mongodb
+          .collection('tweets')
+          .update(
+            { _id: ObjectID(tweetID) },
+            { $pull: { likes: handle } },
+            (err, result) => {
+              if (err) {
+                return callback(err)
+              }
+              callback(null, true)
+            }
+          )
+      }
     }
   }
 }

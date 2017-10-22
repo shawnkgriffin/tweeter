@@ -40,7 +40,8 @@ module.exports = function (dataHelpers) {
       content: {
         text: req.body.text
       },
-      created_at: Date.now()
+      created_at: Date.now(),
+      likes : []
     }
 
     dataHelpers.saveTweet(tweet, err => {
