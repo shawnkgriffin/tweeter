@@ -22,7 +22,7 @@ $(function () {
   * This is placed outside the function as it only needs to be done once
   * still scoped inside this module.
   */
-  var htmlTemplate = `<article>
+  var htmlTemplate = `<article id={{tweetID}}>
       <header>
         <img src={{avatar}}>
         <p class='name'>{{name}}</p>
@@ -51,6 +51,7 @@ $(function () {
 
     // use handlebars template to create the data. This handles XSS
     var data = template({
+      tweetID: tweetData._id,
       name: tweetData.user.name,
       avatar: tweetData.user.avatars.regular,
       handle: tweetData.user.handle,
@@ -79,7 +80,6 @@ $(function () {
 
   // AJAXing Tweets------------------------------------------------------------------------------------------------------------------
   var allTweets = $('#tweets-container')
-
   /*
   * User presses submit on the Compose tweet form, id is #tweet-form. 
   */
@@ -133,6 +133,32 @@ $(function () {
       tweets.forEach(function (tweet) {
         var tweetHTML = createTweetElement(tweet)
         allTweets.prepend(tweetHTML)
+      })
+      /**
+      * User clicks on a tweet to like it. The click comes through because we call the on click
+      * 
+      * @param {string} 
+      * @param {string} author - The author of the book.
+      */
+      $('.fa-heart').on('click', function (event) {
+        const tweetID = $(this)
+          .closest('article')
+          .attr('id')
+        const handle = $(this)
+          .closest('article')
+          .find('.handle')
+          .text()
+        console.log('click faheart', tweetID, handle)
+        event.preventDefault()
+
+        $.ajax({
+          method: 'post',
+          url: '/likes',
+          data: { tweetID: tweetID, handle: handle }
+        }).done(function () {
+          // TODO reset the form for more input
+          console.log('done post fa-heart')
+        })
       })
     })
   }

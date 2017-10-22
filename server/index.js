@@ -23,7 +23,7 @@ MongoClient.connect(MONGODB_URI, (err, mongodb) => {
   // We have a connection to the "tweeter" db, starting here.
   console.log(`Connected to mongodb: ${MONGODB_URI}`)
 
-  // the dataHelpers have been re-factored to user mongo. 
+  // the dataHelpers have been re-factored to user mongo.
 
   const dataHelpers = require('./lib/data-helpers.js')(mongodb)
 
@@ -33,11 +33,16 @@ MongoClient.connect(MONGODB_URI, (err, mongodb) => {
 
   const userRoutes = require('./routes/users')(dataHelpers)
 
+  const likeRoutes = require('./routes/likes')(dataHelpers)
+
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use('/tweets', tweetsRoutes)
 
   // Mount the tweets routes at the "/tweets" path prefix:
   app.use('/users', userRoutes)
+
+  // Mount the tweets routes at the "/tweets" path prefix:
+  app.use('/likes', likeRoutes)
 
   app.listen(PORT, () => {
     console.log('Example app listening on port ' + PORT)
