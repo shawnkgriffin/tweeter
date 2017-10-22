@@ -35,7 +35,7 @@ $(function () {
       {{dateString}}
           <span><i class="fa fa-flag"></i>
             <i class="fa fa-retweet"></i>
-            <i class="fa fa-heart"></i></span>
+            <i class="fa fa-heart">{{numLikes}}</i></span>
       </footer>
     </article>`
 
@@ -56,7 +56,8 @@ $(function () {
       avatar: tweetData.user.avatars.regular,
       handle: tweetData.user.handle,
       content: tweetData.content.text,
-      dateString: dateString
+      dateString: dateString,
+      numLikes: tweetData.likes.length
     })
 
     // The magic of jquery happens here. Passing in the html description with all the proper classes.
@@ -141,6 +142,7 @@ $(function () {
       * @param {string} author - The author of the book.
       */
       $('.fa-heart').on('click', function (event) {
+        event.preventDefault()
         const tweetID = $(this)
           .closest('article')
           .attr('id')
@@ -149,15 +151,15 @@ $(function () {
           .find('.handle')
           .text()
         console.log('click faheart', tweetID, handle)
-        event.preventDefault()
 
         $.ajax({
           method: 'post',
-          url: '/likes',
+          url: '/likes?' + $.param({ tweetID: tweetID, handle: handle }),
           data: { tweetID: tweetID, handle: handle }
         }).done(function () {
           // TODO reset the form for more input
           console.log('done post fa-heart')
+          loadTweets()
         })
       })
     })
