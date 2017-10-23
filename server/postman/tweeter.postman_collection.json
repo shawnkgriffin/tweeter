@@ -1,0 +1,249 @@
+{
+	"id": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+	"name": "tweeter",
+	"description": "",
+	"order": [
+		"c986e862-64ad-dac9-b873-16742fb873e1",
+		"277bfdfd-c1e1-e86c-f41e-7f62c2b21243",
+		"9d19368b-1640-7d78-9291-1082445aea2b",
+		"5d25b72d-230e-4511-02c4-f4eadd8ca8f2",
+		"ce198a0e-b043-d018-6eb9-997b3f786e17"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1508685123693,
+	"owner": "2899997",
+	"public": false,
+	"requests": [
+		{
+			"id": "277bfdfd-c1e1-e86c-f41e-7f62c2b21243",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/tweets",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get Tweets",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1508687231188,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "5d25b72d-230e-4511-02c4-f4eadd8ca8f2",
+			"headers": "tweetID: 59eb985ceea97201887d09bb\nhandle: @shawnk\n",
+			"headerData": [
+				{
+					"key": "tweetID",
+					"value": "59eb985ceea97201887d09bb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/likes?tweetID=59eccd17fba743599674e645&handle=@shawnk",
+			"queryParams": [
+				{
+					"key": "tweetID",
+					"value": "59eccd17fba743599674e645",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+			"data": [
+				{
+					"key": "tweetID",
+					"value": "59eccd17fba743599674e645",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "UN like a Tweet",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1508692264070,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "9d19368b-1640-7d78-9291-1082445aea2b",
+			"headers": "tweetID: 59eb985ceea97201887d09bb\nhandle: @shawnk\n",
+			"headerData": [
+				{
+					"key": "tweetID",
+					"value": "59eb985ceea97201887d09bb",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/likes?tweetID=59eccd17fba743599674e645&handle=@shawnk",
+			"queryParams": [
+				{
+					"key": "tweetID",
+					"value": "59eccd17fba743599674e645",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+			"data": [
+				{
+					"key": "tweetID",
+					"value": "59eccd17fba743599674e645",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "handle",
+					"value": "@shawnk",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Like a Tweet",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1508692249205,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "c986e862-64ad-dac9-b873-16742fb873e1",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users/login?email=shawn%40shawngriffin.com&password=shawn",
+			"queryParams": [
+				{
+					"key": "email",
+					"value": "shawn%40shawngriffin.com",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "shawn",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1508687585394,
+			"name": "get /login",
+			"description": "Login",
+			"collectionId": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+			"responses": []
+		},
+		{
+			"id": "ce198a0e-b043-d018-6eb9-997b3f786e17",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/users/login?email=shawn%40shawngriffin.com&password=shawn",
+			"queryParams": [
+				{
+					"key": "email",
+					"value": "shawn%40shawngriffin.com",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "shawn",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "a900acaf-bffb-c8e2-6665-17fdb415b14d",
+			"data": null,
+			"dataMode": "params",
+			"name": "get /logout",
+			"description": "Logout",
+			"descriptionFormat": "html",
+			"time": 1508702642963,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
