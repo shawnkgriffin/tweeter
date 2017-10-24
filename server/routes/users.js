@@ -38,7 +38,7 @@ module.exports = function (dataHelpers) {
   * @param {string} / - Routes to /users
   * @param {function} function - Calls dataHelpers.getusers
   */
-  usersRoutes.get('/logout', function (req, res) {
+  usersRoutes.post('/logout', function (req, res) {
     req.session = null
     res.status(200)
   })
